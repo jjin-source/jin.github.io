@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main2</title>
+</head>
+<style>
+a { color: #000; text-decoration: none; }
+li { list-style: none; }
+.main {  }
+.main aside { width: 20%; position: -webkit-sticky; position: sticky; top: 0; }
+.main aside ol { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.main aside ol li {  }
+.main aside ol li a { display: block; padding: 3rem 10rem; font-size: 2rem; text-align: center; }
+.main .visual { margin-left: 20%; width: 80%; }
+.main .visual ul {  }
+.main .visual ul li { width: 100%; height: 50vh; display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; color: #fff; }
+.main .visual ul li:nth-child(1) { background-color: #999; }
+.main .visual ul li:nth-child(2) { background-color: #777; }
+.main .visual ul li:nth-child(3) { background-color: #444; }
+.main .visual ul li:nth-child(4) { background-color: #222; }
+footer { font-size: 2rem; text-align: center; height: 100vh; }
+</style>
+<body>
+    <header>  
+        <div class="container">
+            <nav class="gnb">
+                <ol>
+                    <li class="gnb-item"><a href="#intro"><span>01</span>자기소개</a></li>
+                    <li class="gnb-item"><a href="#career"><span>01</span>경력사항</a></li>
+                    <li class="gnb-item"><a href="#pf"><span>02</span>프로젝트</a></li>
+                    <li class="gnb-item"><a href="#contact"><span>03</span>연락하기</a></li>
+                </ol>
+            </nav>
+        </div>                      
+    </header>    
+    <div class="main">
+        <aside>
+            <nav>
+                <ol>
+                    <li><a href="#text1">text1</a></li>
+                    <li><a href="#text2">text2</a></li>
+                    <li><a href="#text3">text3</a></li>
+                    <li><a href="#text4">text4</a></li>
+                </ol>
+            </nav>
+        </aside>
+        <section class="visual">            
+            <div class="container">
+                <ul>
+                    <li id="text1">text1</li>
+                    <li id="text2">text2</li>
+                    <li id="text3">text3</li>
+                    <li id="text4">text4</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="container">
+            <p>footer</p>
+        </div>
+    </footer>
+</body>
+</html>

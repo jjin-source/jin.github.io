@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico"/>
+        <link
+            rel="mask-icon"
+            type=""
+            href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+            color="#111"/>
+        <title>main</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <style>
+            @charset "UTF-8";
+            * {
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #DEE1B6;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            #next,
+            #prev {
+                display: block;
+                position: absolute;
+                top: 50%;
+                background: rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                z-index: 999;
+                color: rgba(255, 255, 255, 0.6);
+                -moz-transition-property: all;
+                -o-transition-property: all;
+                -webkit-transition-property: all;
+                transition-property: all;
+                -moz-transition-duration: 0.5s;
+                -o-transition-duration: 0.5s;
+                -webkit-transition-duration: 0.5s;
+                transition-duration: 0.5s;
+            }
+            #next:hover,
+            #prev:hover {
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+            }
+
+            #next {
+                right: 0;
+                -moz-border-radius-topleft: 5px;
+                -webkit-border-top-left-radius: 5px;
+                border-top-left-radius: 5px;
+                -moz-border-radius-bottomleft: 5px;
+                -webkit-border-bottom-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            #next:after {
+                content: " →";
+            }
+
+            #prev {
+                -moz-border-radius-topright: 5px;
+                -webkit-border-top-right-radius: 5px;
+                border-top-right-radius: 5px;
+                -moz-border-radius-bottomright: 5px;
+                -webkit-border-bottom-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                left: 0;
+            }
+            #prev:before {
+                content: "← ";
+            }
+
+            .slider {
+                width: 1200px;
+                height: 400px;
+                margin: 40px auto;
+                overflow: hidden;
+                border: 1px solid black;
+                position: relative;
+            }
+
+            .foreground {
+                display: block;
+                width: 300px;
+                height: 300px;
+                margin: 0 auto;
+                position: absolute;
+                left: 450px;
+                bottom: -200px;
+                z-index: 9999;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                background: #DEE1B6;
+            }
+
+            .wrap {
+                width: 2000px;
+                height: 2000px;
+                overflow: hidden;
+                margin: -46% -33%;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                -moz-transition-property: all;
+                -o-transition-property: all;
+                -webkit-transition-property: all;
+                transition-property: all;
+                -moz-transition-duration: 0.5s;
+                -o-transition-duration: 0.5s;
+                -webkit-transition-duration: 0.5s;
+                transition-duration: 0.5s;
+                -moz-transition-timing-function: ease-in-out;
+                -o-transition-timing-function: ease-in-out;
+                -webkit-transition-timing-function: ease-in-out;
+                transition-timing-function: ease-in-out;
+            }
+
+            .box {
+                width: 50%;
+                height: 50%;
+                float: left;
+                position: relative;
+                -webkit-backface-visibility: hidden;
+            }
+
+            .one {
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOFvN7DVlEZtjwRHGLARU3plJV5J3JgneRCoqdUBNkVahFxbzFpA");
+
+                -moz-transform-origin: right bottom;
+                -ms-transform-origin: right bottom;
+                -webkit-transform-origin: right bottom;
+                transform-origin: right bottom;
+            }
+
+            .two {
+                background-image: url("https://i.imgur.com/OVko5.jpg");
+                -moz-transform-origin: left bottom;
+                -ms-transform-origin: left bottom;
+                -webkit-transform-origin: left bottom;
+                transform-origin: left bottom;
+            }
+
+            .three {
+                background-image: url("https://article.images.consumerreports.org/c_lfill,ar_32:11,w_1199/prod/content/dam/cro/news_articles/health/CR-Health-AH-Supplements_ss-Drugs-11-15");
+                -moz-transform-origin: right top;
+                -ms-transform-origin: right top;
+                -webkit-transform-origin: right top;
+                transform-origin: right top;
+            }
+
+            .four {
+                background: #373B44;
+                -moz-transform-origin: left top;
+                -ms-transform-origin: left top;
+                -webkit-transform-origin: left top;
+                transform-origin: left top;
+            }
+        </style>
+    </head>
+    <body translate="no" >
+
+  
+        <div class="slider">
+          <nav>
+            <a href="#" id="prev"></a>
+            <a href="#" id="next"></a>
+          </nav>
+        
+          <div class="foreground"></div>
+          <div class="wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+          </div>
+          
+        </div>
+          
+          <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        
+            <script >
+            var rotation = 45;
+        
+        // Rotate it 45 degrees to start webkit only due to laziness
+        $('.wrap').css('-webkit-transform','rotate('+rotation+'deg)');
+        
+        // Becuase I want it to be a square. There's probably a better way
+        //var width = $('.wrap').css('width');
+        //$('.wrap').css('height', width);
+        
+        // Handle the forward and backward rotation
+        $('#next').click(function(){
+          rotation += 90;
+          $('.wrap').css(
+            '-webkit-transform', 'rotate('+rotation+'deg)'
+          );
+        });
+        
+        $('#prev').click(function(){
+          rotation -= 90;
+          $('.wrap').css(
+            '-webkit-transform', 'rotate('+rotation+'deg)'
+          );
+        });
+          </script>
+        
+          
+          
+        
+        </body>
+</html>
